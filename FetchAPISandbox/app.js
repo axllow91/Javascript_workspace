@@ -11,12 +11,13 @@ document.getElementById('button3').addEventListener('click', getExternal);
 // Get Local Text File Data
 function getText() {
   fetch('test.txt')
-  .then(function(response){
+  .then(response => {
     return response.text();
   })
-  .then(function(data) {
+  .then(data => {
     document.getElementById('output').innerHTML = data;
-  }).catch(function(err){
+  })
+  .catch(err => {
     console.log(err);
   });
 }
@@ -24,10 +25,10 @@ function getText() {
 // Get Json local data file
 function getJSON() {
   fetch('post.json')
-    .then(function(response){
+    .then(response => {
       return response.json();
     })
-    .then(function(data){
+    .then(data => {
       console.log(data);
       let output = '';
       data.forEach(function(posts){
@@ -35,7 +36,7 @@ function getJSON() {
       });
       document.getElementById('output').innerHTML = output;
     })
-    .catch(function(error) {
+    .catch(error => {
       console.log(error);
     });
 }
@@ -43,10 +44,10 @@ function getJSON() {
 // Get from external API 
 function getExternal() {
   fetch('https://api.github.com/users')
-    .then(function(response){
+    .then(response => {
       return response.json();
     })
-    .then(function(data){
+    .then((data) => {
       console.log(data);
       let output = '';
       data.forEach(function(user){
@@ -54,7 +55,7 @@ function getExternal() {
       });
       document.getElementById('output').innerHTML = output;
     })
-    .catch(function(error) {
+    .catch(error => {
       console.log(error);
     });
 }
