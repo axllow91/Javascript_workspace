@@ -47,7 +47,7 @@ function getExternal() {
     .then(response => {
       return response.json();
     })
-    .then((data) => {
+    .then(data => {
       console.log(data);
       let output = '';
       data.forEach(function(user){
