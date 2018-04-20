@@ -23,13 +23,26 @@ const posts = [
 
 // getPost();
 
+// creating post with promise
 function createPost(post, callback) {
-  setTimeout(function(){
-    posts.push(post);
-    callback();
-  }, 2000);
-}
+  
+  return new Promise(function(resolve, reject){  // resolve is when what we were doing is done
+    setTimeout(function(){                       // reject is when we have some sort of error 
+      posts.push(post);
+      const error = false;
 
+      if(!error) {
+        resolve();
+      } else {
+        reject('Erorr: SOmething went wrong!');
+      }
+      
+    }, 2000);                                               
+  });
+
+
+  
+}
 function getPosts() {
   setTimeout(function(){
     let output = '';
@@ -40,4 +53,8 @@ function getPosts() {
   }, 1000);
 }
 
-createPost({title: 'Post Three', body: 'This is post three'}, getPosts);
+createPost({title: 'Post Three', body: 'This is post three'})
+.then(getPosts)
+.catch(function(err) {
+  console.log(err);
+})
