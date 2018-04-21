@@ -71,12 +71,10 @@ class EassyHTTP {
   delete(url) {
     return new Promise((resolve, reject) => {
       fetch(url, {
-        method: 'PUT',
+        method: 'DELETE',
         headers: {
           'Content-type':'application/json'
         },
-        // Converting Javascript value into JSON string value
-        body: JSON.stringify(data)
       })
         .then(response => response.json())
         .then(() => resolve('Resource Deleted...'))
