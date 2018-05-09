@@ -52,7 +52,7 @@ class UI {
       `;
     });
 
-    // Output repos
+    // Output
     document.getElementById('repos').innerHTML = output;
   }
 
